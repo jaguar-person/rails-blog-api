@@ -5,4 +5,5 @@ class Post < ApplicationRecord
 
   has_many :ratings, dependent: :restrict_with_exception
   belongs_to :user
+  has_one :user
 end
