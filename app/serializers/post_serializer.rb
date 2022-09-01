@@ -1,7 +1,12 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id
+  attributes :id, :title, :body, :ip, :user
+  attribute :avg_rating, if: :avg_rating?
 
   def user
-    objects.user
+    object.user
+  end
+
+  def avg_rating?
+    true if instance_options[:avg_rating]
   end
 end
