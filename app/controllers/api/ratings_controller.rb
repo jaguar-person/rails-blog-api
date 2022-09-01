@@ -4,7 +4,7 @@ class Api::RatingsController < ApplicationController
 
     if @rating.invalid?
       render json: @rating.errors.messages, status: :unprocessable_entity
-      return
+      nil
     else
       @rating.save
     end
