@@ -1,5 +1,5 @@
 class PostSerializer < ActiveModel::Serializer
-  attributes :id, :title, :body, :ip, :user
+  attributes :id, :title, :body, :ip, :user_id, :user
   attribute :avg_rating, if: :avg_rating?
 
   def user

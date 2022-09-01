@@ -21,9 +21,9 @@ class Api::PostsController < ApplicationController
     render json: @post, avg_rating: false, status: :ok
   end
 
-  def getIPs
-    sql = "select ip, array_agg(DISTINCT users.login) from posts LEFT join users ON users.id = posts.user_id group by ip"
-    @ips = ActiveRecord::Base.connection.execute(sql)
+  def ip_list
+    q = "select ip, array_agg(DISTINCT users.login) from posts LEFT join users ON users.id = posts.user_id group by ip"
+    @ips = ActiveRecord::Base.connection.execute(q)
 
     render json: @ips, status: :ok
   end
