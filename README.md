@@ -1,24 +1,35 @@
-# README
+# Blog APIs
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Stack
 
-Things you may want to cover:
+Ruby on Rails + PostgreSQL
 
-* Ruby version
+## APIs
 
-* System dependencies
+- Create a new post. Method should accept title, body, user login and user ip.
+- Rate the post. Method should accept post id, user id and rating value.
+- Get top 100 posts by average rating.
+- Get a list of IPs that were posted by several different authors.
 
-* Configuration
+## Data Structure
 
-* Database creation
+### users
 
-* Database initialization
+id, login (string, not null)
 
-* How to run the test suite
+### posts
 
-* Services (job queues, cache servers, search engines, etc.)
+user_id (not null), title (string, not null), body (text, not null), ip (not null)
 
-* Deployment instructions
+### ratings
 
-* ...
+post_id (not null), user_id (not null), value (integer, allowed values from 1 to 5, not null)
+
+## How to start
+
+```
+rails db:create
+rails db:migrate
+rails s
+rails db:seed
+```
