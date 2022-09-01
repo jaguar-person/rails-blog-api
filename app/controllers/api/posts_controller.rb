@@ -2,7 +2,7 @@ class Api::PostsController < ApplicationController
   def index
     @posts = Post.left_outer_joins(:ratings).select("posts.*, coalesce(avg(ratings.value), 0) as avg_rating").group(
       "posts.id", "posts.title"
-    ).order("avg_rating DESC").limit(10)
+    ).order("avg_rating DESC").limit(100)
 
     render json: @posts, avg_rating: true, status: :ok
   end

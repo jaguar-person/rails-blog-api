@@ -1,6 +1,7 @@
 class Api::RatingsController < ApplicationController
   def create
     @rating = Rating.new(rating_params)
+
     if @rating.invalid?
       render json: @rating.errors.messages, status: :unprocessable_entity
       nil

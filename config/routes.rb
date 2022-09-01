@@ -5,6 +5,6 @@ Rails.application.routes.draw do
     resources :posts, only: [:index, :create]
     get "/posts/ips", to: "posts#ip_list"
 
-    resources :ratings
+    resources :ratings, only: [:create]
   end
 end
